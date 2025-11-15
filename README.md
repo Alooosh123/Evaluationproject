@@ -1,0 +1,1 @@
+The program evaluates lecturers through student responses to specific questions, and returns values ​​that are then analyzed using a special function to return a score of 5/5 if the evaluation is excellent.
