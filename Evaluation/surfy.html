@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>تقييم المدرس</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .score-select {
+      width: 100px;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .score-select option {
+      background-color: #f2f2f2;
+    }
+
+    .score-select option:checked {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const scoreSelects = document.querySelectorAll('.score-select');
+      const totalScoreElement = document.getElementById('total-score');
+
+      scoreSelects.forEach((select) => {
+        select.addEventListener('change', () => {
+          let totalScore = 0;
+          scoreSelects.forEach((select) => {
+            totalScore += parseInt(select.value);
+          });
+          totalScoreElement.textContent = totalScore;
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>تقييم المدرس</h1>
+    <table>
+      <tr>
+        <th>السؤال</th>
+        <th>التقييم</th>
+      </tr>
+      <tr>
+        <td>هل يقدم المدرس المعلومات بشكل واضح؟</td>
+        <td>
+          <select class="score-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>هل يشجع المدرس على المشاركة الفعّالة؟</td>
+        <td>
+          <select class="score-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>هل يوضح المدرس الأمثلة العملية بشكل جيد؟</td>
+        <td>
+          <select class="score-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <div class="total">
+      <span>مجموع الدرجات:</span> <span id="total-score">0</span>
+    </div>
+  </div>
+</body>
+</html>
